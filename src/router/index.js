@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import PlacePage from "../views/PlacePage";
 import IndexPage from "../views/IndexPage";
+import NewPlacePage from "../views/NewPlacePage";
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     name: "place",
     path: "/places/:id",
     component: PlacePage,
+  },
+  {
+    name: "new-place",
+    path: "/places/new",
+    component: NewPlacePage,
   },
 ];
 

@@ -13,7 +13,9 @@
       </PlaceListing>
     </li>
     <li>
-      <button class="add">+</button>
+      <RouterLink class="add" :to="{ name: 'new-place' }"
+        ><span>+</span></RouterLink
+      >
     </li>
   </ul>
 </template>
@@ -22,10 +24,11 @@
 import PlaceListing from "@/components/PlaceListing";
 
 export default {
+  name: "IndexPage",
   components: {
     PlaceListing,
   },
-  mounted() {
+  created() {
     this.$store.dispatch("getPlaces");
   },
   computed: {
@@ -44,17 +47,26 @@ export default {
   .image-tile {
     height: 225px;
   }
-}
-button {
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  font-size: 128px;
-  color: #999;
-  background-color: #eee;
-  cursor: pointer;
-}
-.add {
-  height: 300px;
-  width: 300px;
+  .add {
+    appearance: button;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 128px;
+    color: #999;
+    background-color: #eee;
+    cursor: pointer;
+    transition: transform 0.3s;
+    span {
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 }
 </style>

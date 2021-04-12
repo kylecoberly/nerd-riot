@@ -29,15 +29,12 @@ describe("Listing places", () => {
         ],
       },
     });
+    cy.visit("/");
   });
   it("lists places", () => {
-    cy.visit("/");
-
     cy.get(".place-listing").should("have.length", 2);
   });
   it("navigates to a place", () => {
-    cy.visit("/");
-
     cy.get(".place-listing").eq(0).find(".more").click();
 
     cy.url().should("include", "places/1");
